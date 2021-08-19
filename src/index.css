@@ -8,6 +8,7 @@
 * {
   box-sizing: inherit;
   color: inherit;
+  font-family: inherit;
 }
 
 body {
@@ -20,4 +21,8 @@ ul,
 li {
   list-style: none;
   padding: 0;
+}
+
+input {
+  font-family: inherit !important;
 }
