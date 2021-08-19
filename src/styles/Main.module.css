@@ -7,5 +7,13 @@
   font-size: 2rem;
   color: #fff;
   display: inline-block;
-  margin: 5.5rem 0 3.25rem 2.5rem;
+  margin: 5.5rem 0 1.5rem 2.5rem;
+}
+
+.postItContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% - 2.5rem);
+  margin-left: 2.5rem;
+  margin-top: 0;
 }
