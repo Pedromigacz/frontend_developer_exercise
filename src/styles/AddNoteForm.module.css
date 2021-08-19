@@ -1,0 +1,13 @@
+.addNoteForm {
+  display: inline-block;
+  min-width: 595px;
+  background-color: #fff;
+  color: #000;
+  height: 100vh;
+  padding: 96px 109px 0 48px;
+}
+
+.addNoteForm h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}

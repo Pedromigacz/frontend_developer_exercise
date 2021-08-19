@@ -1,8 +1,9 @@
-import { Layout, Main } from "./components/";
+import { Layout, Main, AddNoteForm } from "./components/";
 
 const App = () => (
   <Layout>
     <Main />
+    <AddNoteForm />
   </Layout>
 );
 
