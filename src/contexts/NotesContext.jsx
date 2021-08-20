@@ -22,7 +22,7 @@ const NotesContextProvider = (props) => {
 
   const countNotes = () => notes.length;
 
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("noteList", JSON.stringify(notes));
   }, [notes]);
 
