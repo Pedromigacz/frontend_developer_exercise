@@ -1,7 +1,11 @@
 .postIt {
   background: url(../vectors/PostIt.svg) no-repeat 100%;
-  width: 325px;
-  height: 353px;
+  max-width: 325px;
+  max-height: 353px;
+  min-width: 312px;
+  min-height: 310px;
+  width: 80vw;
+  height: 80vw;
   padding: 40px 25px 25px 25px;
   margin-right: 20px;
   margin-top: 1.25rem;

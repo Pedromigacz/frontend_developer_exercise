@@ -30,7 +30,7 @@
   }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 1110px) {
   .addNoteForm {
     position: absolute;
     top: 0;
