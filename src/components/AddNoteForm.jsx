@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { NotesContext } from "../contexts/NotesContext.jsx";
 import styles from "../styles/AddNoteForm.module.css";
 import { Input, Button } from "./";
 
@@ -8,8 +9,15 @@ const AddNoteForm = () => {
     description: "",
   });
 
+  const { addNote } = useContext(NotesContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    addNote(newNote);
+    setNewNote({
+      title: "",
+      description: "",
+    });
   };
 
   return (
