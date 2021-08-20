@@ -5,14 +5,26 @@ const Input = ({
   label = "label",
   placeholder = "placeholder",
   textArea = false,
+  value,
+  onChange,
 }) => {
   return (
     <label className={styles.inputContainer}>
       <span className={styles.label}>{label}</span>
       {textArea ? (
-        <textarea placeholder={placeholder} rows="7" />
+        <textarea
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          rows="7"
+        />
       ) : (
-        <input type="text" placeholder={placeholder} />
+        <input
+          value={value}
+          onChange={onChange}
+          type="text"
+          placeholder={placeholder}
+        />
       )}
     </label>
   );
