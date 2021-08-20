@@ -2,7 +2,7 @@
   background: url(../vectors/PostIt.svg) no-repeat 100%;
   width: 325px;
   height: 353px;
-  padding: 40px 25px 0 25px;
+  padding: 40px 25px 25px 25px;
   margin-right: 20px;
   margin-top: 1.25rem;
 }
@@ -10,11 +10,24 @@
 .postIt h4 {
   font-size: 1.5rem;
   min-width: 100%;
+  text-align: justify;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.postIt h4:hover {
+  white-space: unset;
+  text-overflow: unset;
+  overflow: hidden;
 }
 
 .postIt p {
   font-size: 18px;
   text-align: justify;
+  max-height: calc(100% - 114px);
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .postIt:hover .closeButton {
