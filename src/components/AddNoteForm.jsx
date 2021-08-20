@@ -1,13 +1,11 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { NotesContext } from "../contexts/NotesContext.jsx";
+import { MobileContext } from "../contexts/MobileContext.jsx";
 import styles from "../styles/AddNoteForm.module.css";
 import { Input, Button } from "./";
 import CloseIcon from "../vectors/CloseIcon.jsx";
 
 const AddNoteForm = () => {
-  // mobile display
-  const [mobile, setMobile] = useState(false);
-  const [display, setDisplay] = useState(true);
   // form state
   const [newNote, setNewNote] = useState({
     title: "",
@@ -15,6 +13,8 @@ const AddNoteForm = () => {
   });
 
   const { addNote } = useContext(NotesContext);
+  // mobile context
+  const { mobile, displayAside, closeAside } = useContext(MobileContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,31 +23,12 @@ const AddNoteForm = () => {
       title: "",
       description: "",
     });
+    closeAside();
   };
 
-  const handleResize = () => {
-    if (window.innerWidth < 780) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  };
-
-  // add javascript media query
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return !mobile || display ? (
+  return !mobile || displayAside ? (
     <aside className={styles.addNoteForm}>
-      <button
-        className={styles.closeButton}
-        onClick={(e) => {
-          setDisplay(false);
-        }}
-      >
+      <button className={styles.closeButton} onClick={closeAside}>
         <CloseIcon />
       </button>
       <form onSubmit={handleSubmit}>
