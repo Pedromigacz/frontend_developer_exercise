@@ -11,6 +11,7 @@
 
 .buttonContainer {
   display: inline-block;
+  vertical-align: middle;
 }
 
 .buttonContainer:hover {
