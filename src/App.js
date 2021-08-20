@@ -1,13 +1,16 @@
 import { Layout, Main, AddNoteForm } from "./components/";
 import NotesContextProvider from "./contexts/NotesContext.jsx";
+import MobileContextProvider from "./contexts/MobileContext.jsx";
 
 const App = () => (
-  <NotesContextProvider>
-    <Layout>
-      <Main />
-      <AddNoteForm />
-    </Layout>
-  </NotesContextProvider>
+  <MobileContextProvider>
+    <NotesContextProvider>
+      <Layout>
+        <Main />
+        <AddNoteForm />
+      </Layout>
+    </NotesContextProvider>
+  </MobileContextProvider>
 );
 
 export default App;
