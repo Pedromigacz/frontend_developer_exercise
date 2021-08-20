@@ -1,9 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { NotesContext } from "../contexts/NotesContext.jsx";
 import styles from "../styles/AddNoteForm.module.css";
 import { Input, Button } from "./";
+import CloseIcon from "../vectors/CloseIcon.jsx";
 
 const AddNoteForm = () => {
+  // mobile display
+  const [mobile, setMobile] = useState(false);
+  const [display, setDisplay] = useState(true);
+  // form state
   const [newNote, setNewNote] = useState({
     title: "",
     description: "",
@@ -20,8 +25,31 @@ const AddNoteForm = () => {
     });
   };
 
-  return (
+  const handleResize = () => {
+    if (window.innerWidth < 780) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+  };
+
+  // add javascript media query
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return !mobile || display ? (
     <aside className={styles.addNoteForm}>
+      <button
+        className={styles.closeButton}
+        onClick={(e) => {
+          setDisplay(false);
+        }}
+      >
+        <CloseIcon />
+      </button>
       <form onSubmit={handleSubmit}>
         <h2>Add a note</h2>
         <Input
@@ -44,7 +72,7 @@ const AddNoteForm = () => {
         <Button>Add note</Button>
       </form>
     </aside>
-  );
+  ) : null;
 };
 
 export default AddNoteForm;

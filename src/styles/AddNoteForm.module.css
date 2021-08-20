@@ -12,3 +12,32 @@
   font-weight: 600;
   margin-bottom: 24px;
 }
+
+.closeButton {
+  border: none;
+  background-color: transparent;
+  display: none;
+  place-items: center;
+  margin-bottom: -48px;
+  float: right;
+  cursor: pointer;
+}
+
+@media (max-width: 1330px) {
+  .addNoteForm {
+    min-width: 375px;
+    padding: 32px 22px 0 22px;
+  }
+}
+
+@media (max-width: 780px) {
+  .addNoteForm {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100% !important;
+  }
+  .closeButton {
+    display: grid;
+  }
+}
