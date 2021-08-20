@@ -1,21 +1,14 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 export const NotesContext = createContext();
 
 const NotesContextProvider = (props) => {
   // setup router
-  const [notes, setNotes] = useState([
-    {
-      title: "Sticky note title here1",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-    },
-    {
-      title: "Sticky note title here2",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-    },
-  ]);
+  const [notes, setNotes] = useState(
+    localStorage.getItem("noteList")
+      ? JSON.parse(localStorage.getItem("noteList"))
+      : []
+  );
 
   const addNote = (newNote) => {
     setNotes([...notes, newNote]);
@@ -28,6 +21,10 @@ const NotesContextProvider = (props) => {
   };
 
   const countNotes = () => notes.length;
+
+  React.useEffect(() => {
+    localStorage.setItem("noteList", JSON.stringify(notes));
+  }, [notes]);
 
   return (
     <NotesContext.Provider value={{ notes, addNote, removeNote, countNotes }}>
