@@ -1,5 +1,5 @@
 import { Layout, Main, AddNoteForm } from "./components/";
-import NotesContextProvider from "./contexts/NotesContext.jsx";
+import NotesContextProvider from "./contexts/NotesContext.tsx";
 import MobileContextProvider from "./contexts/MobileContext.jsx";
 // import { AnimatePresence } from "framer-motion";
 

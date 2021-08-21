@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { NotesContext } from "../contexts/NotesContext.jsx";
+import { NotesContext } from "../contexts/NotesContext.tsx";
 import { MobileContext } from "../contexts/MobileContext.jsx";
 import styles from "../styles/AddNoteForm.module.css";
 import { Input, Button } from "./";
