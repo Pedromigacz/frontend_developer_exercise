@@ -1,9 +1,9 @@
 import { Layout, Main, AddNoteForm } from "./components/";
-import NotesContextProvider from "./contexts/NotesContext.tsx";
-import MobileContextProvider from "./contexts/MobileContext.tsx";
+import NotesContextProvider from "./contexts/NotesContext";
+import MobileContextProvider from "./contexts/MobileContext";
 // import { AnimatePresence } from "framer-motion";
 
-const App = () => (
+const App: React.FC = () => (
   <MobileContextProvider>
     <NotesContextProvider>
       <Layout>
