@@ -6,7 +6,7 @@ type NoteObjectType = {
 };
 
 interface createContextInterface {
-  notes: NoteObjectType[] | null;
+  notes: NoteObjectType[];
   addNote: (arg0: NoteObjectType) => void;
   removeNote: (arg0: number) => void;
   countNotes: () => void;

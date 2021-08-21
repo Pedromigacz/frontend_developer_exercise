@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { NotesContext } from "../contexts/NotesContext.tsx";
-import { MobileContext } from "../contexts/MobileContext.tsx";
+import { NotesContext } from "../contexts/NotesContext";
+import { MobileContext } from "../contexts/MobileContext";
 import styles from "../styles/Main.module.css";
 import { PostIt, Button } from "./";
 
-const Main = () => {
+const Main: React.FC = () => {
   const { countNotes, notes, removeNote } = useContext(NotesContext);
   // mobile context
   const { openAside } = useContext(MobileContext);
