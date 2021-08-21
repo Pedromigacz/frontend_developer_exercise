@@ -30,6 +30,11 @@
   margin-right: 30px;
 }
 
+.empySub {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
 @media (max-width: 1110px) {
   .mobileButtonContainer {
     display: inline-block;
@@ -42,5 +47,8 @@
   }
   .mobileButtonContainer {
     margin-top: 74px;
+  }
+  .empySub {
+    font-size: 1rem;
   }
 }

@@ -18,7 +18,7 @@ const Main: React.FC = () => {
         </span>
       </div>
       <ul className={styles.postItContainer}>
-        {notes.length &&
+        {notes.length ? (
           notes.map((note, i) => (
             <PostIt
               title={note.title}
@@ -28,7 +28,10 @@ const Main: React.FC = () => {
               }}
               key={i}
             />
-          ))}
+          ))
+        ) : (
+          <h3 className={styles.empySub}>Your notes are empty...</h3>
+        )}
       </ul>
     </main>
   );
