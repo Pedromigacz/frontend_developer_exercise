@@ -1,21 +1,28 @@
 import React, { createContext, useState, useEffect } from "react";
 
-export const MobileContext = createContext();
+interface createContextInterface {
+  mobile: boolean;
+  displayAside: boolean;
+  openAside: () => void;
+  closeAside: () => void;
+}
 
-const MobileContextProvider = (props) => {
+export const MobileContext = createContext({} as createContextInterface);
+
+const MobileContextProvider: React.FC = ({ children }) => {
   // setup router
   const [mobile, setMobile] = useState(false);
   const [displayAside, setDisplayAsite] = useState(false);
 
-  const openAside = () => {
+  const openAside = (): void => {
     setDisplayAsite(true);
   };
 
-  const closeAside = () => {
+  const closeAside = (): void => {
     setDisplayAsite(false);
   };
 
-  const handleResize = () => {
+  const handleResize = (): void => {
     if (window.innerWidth < 1110) {
       setMobile(true);
     } else {
@@ -34,7 +41,7 @@ const MobileContextProvider = (props) => {
     <MobileContext.Provider
       value={{ displayAside, mobile, openAside, closeAside }}
     >
-      {props.children}
+      {children}
     </MobileContext.Provider>
   );
 };

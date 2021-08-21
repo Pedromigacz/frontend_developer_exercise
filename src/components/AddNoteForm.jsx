@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { NotesContext } from "../contexts/NotesContext.tsx";
-import { MobileContext } from "../contexts/MobileContext.jsx";
+import { MobileContext } from "../contexts/MobileContext.tsx";
 import styles from "../styles/AddNoteForm.module.css";
 import { Input, Button } from "./";
 import CloseIcon from "../vectors/CloseIcon.jsx";

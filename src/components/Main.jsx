@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { NotesContext } from "../contexts/NotesContext.tsx";
-import { MobileContext } from "../contexts/MobileContext.jsx";
+import { MobileContext } from "../contexts/MobileContext.tsx";
 import styles from "../styles/Main.module.css";
 import { PostIt, Button } from "./";
 
