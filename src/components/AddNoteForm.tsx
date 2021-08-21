@@ -1,14 +1,19 @@
 import React, { useState, useContext } from "react";
-import { NotesContext } from "../contexts/NotesContext.tsx";
-import { MobileContext } from "../contexts/MobileContext.tsx";
+import { NotesContext } from "../contexts/NotesContext";
+import { MobileContext } from "../contexts/MobileContext";
 import styles from "../styles/AddNoteForm.module.css";
 import { Input, Button } from "./";
 import CloseIcon from "../vectors/CloseIcon.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 
-const AddNoteForm = () => {
+type note = {
+  title: string;
+  description: string;
+};
+
+const AddNoteForm: React.FC = () => {
   // form state
-  const [newNote, setNewNote] = useState({
+  const [newNote, setNewNote] = useState<note>({
     title: "",
     description: "",
   });
@@ -17,7 +22,7 @@ const AddNoteForm = () => {
   // mobile context
   const { mobile, displayAside, closeAside } = useContext(MobileContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     addNote(newNote);
     setNewNote({
@@ -46,7 +51,7 @@ const AddNoteForm = () => {
               label="Title:"
               placeholder="Enter a note title..."
               value={newNote.title}
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setNewNote({ ...newNote, title: e.target.value });
               }}
             />
@@ -55,7 +60,7 @@ const AddNoteForm = () => {
               placeholder="Enter a description..."
               textArea="true"
               value={newNote.description}
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setNewNote({ ...newNote, description: e.target.value });
               }}
             />

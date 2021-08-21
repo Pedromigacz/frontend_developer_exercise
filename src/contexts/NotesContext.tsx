@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 
 type NoteObjectType = {
-  name: string;
+  title: string;
   description: string;
 };
 
